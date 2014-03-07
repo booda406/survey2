@@ -4,6 +4,9 @@
   <strong>Name:</strong>
   <%= @survey.name %>
 </p>
+ <% @survey.questions.each do |q| %>
+  <%= q.content %><br/>
+ <% end %>
 
 <%= link_to 'Edit', edit_survey_path(@survey) %> |
 <%= link_to 'Back', surveys_path %>

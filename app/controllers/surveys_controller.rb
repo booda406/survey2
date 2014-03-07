@@ -15,7 +15,6 @@ class SurveysController < ApplicationController
   # GET /surveys/new
   def new
     @survey = Survey.new
-    3.times {@survey.questions.build}
     Rails.logger.debug("New method executed")
   end
 
@@ -71,6 +70,6 @@ class SurveysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def survey_params
-      params.require(:survey).permit(:name, questions_attributes: [:id, :content])
+      params.require(:survey).permit(:name, questions_attributes: [:id, :content, :_destroy, option_booleans_attributes: [:id, :question_id, :topic, :answer], option_strs_attributes: [:id, :question_id, :topic, :answer]])
     end
 end

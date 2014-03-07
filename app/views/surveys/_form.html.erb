@@ -1,4 +1,4 @@
-<%= form_for(@survey) do |f| %>
+<%= nested_form_for(@survey) do |f| %>
   <% if @survey.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
@@ -14,15 +14,14 @@
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+    <%= @survey.name %>
   </div>
   <div class="field">
     <%= f.fields_for :questions do |builder| %>
-    <div>
-      <%= builder.label :content, "Question" %><br/>
-      <%= builder.text_area :content, :rows => 3 %>
-    </div>
+    <%= render "question_fields", :f => builder %>
     <% end %>
   </div>
+    <p><%= f.link_to_add "Add a question", :questions %></p>
   <div class="actions">
     <%= f.submit %>
   </div>

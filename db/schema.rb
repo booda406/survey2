@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301081310) do
+ActiveRecord::Schema.define(version: 20140307024004) do
+
+  create_table "option_booleans", force: true do |t|
+    t.integer  "question_id"
+    t.string   "topic"
+    t.boolean  "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "option_strings", force: true do |t|
+    t.integer  "question_id"
+    t.string   "topic"
+    t.string   "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "option_strs", force: true do |t|
+    t.integer  "question_id"
+    t.string   "topic"
+    t.string   "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "questions", force: true do |t|
     t.integer  "survey_id"
