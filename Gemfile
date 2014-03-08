@@ -21,6 +21,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # has_many
 gem 'nested_form'
 
+# deep dup
+gem 'deep_cloneable', '~>1.6.0'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
